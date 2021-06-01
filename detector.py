@@ -16,5 +16,12 @@ def scan(cap, detector, it):
 
 	return joints
 
-def closest(locations, coords):
-	return None
+def closest(locations, x, y):
+	best, curr = 1000, ''
+	for row in locations:
+		score = abs(x - row[1]) + abs(y - row[2])
+		if score <= best:
+			best = score
+			curr = row[0]
+
+	return curr, best
