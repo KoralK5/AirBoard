@@ -9,7 +9,7 @@ def scan(cap, detector):
 	joints, bbox = detector.findPosition(img)
 
 	if not len(joints):
-		return None, img
+		return None, img, bbox
 
 	return joints, img, bbox
 
