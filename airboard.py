@@ -13,13 +13,14 @@ detector = tracker.handDetector(maxHands=1)
 locations = cal.calibrate(cap, detector, amount)
 
 while True:
-	coords = det.scan(cap, detector)
+	coords, img, bbox = det.scan(cap, detector)
 
 	if coords:
 		_, x, y = coords[8]
-
 		key, best = det.closest(locations, x, y)
-	
-	system('cls')
-	print('\nKey:', key)
-	print(f'\nCertainty: {100 - best}%')
+
+		xmin, ymin, xmax, ymax = bbox
+		cv2.putText(img, key, ((xmin+xmax)//2, ymin-50), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2, cv2.LINE_AA)
+
+	cv2.imshow(f'Joint Detector', img)
+	cv2.waitKey(1)
