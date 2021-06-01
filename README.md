@@ -1,7 +1,7 @@
 # AirBoard
 A keyboard without keys which uses OpenCV to locate finger locations to and MediaPipe to predict key presses.
 
-![keyboard](https://user-images.githubusercontent.com/62809012/120280327-87d11e80-c285-11eb-8950-931a21759d91.gif)
+![key](https://user-images.githubusercontent.com/62809012/120325744-f5953e80-c2b5-11eb-85b2-715d1f2b1fef.gif)
 
 As of now, machine learning is not involved, but I plan to add it in the future to improve its accuracy.
 
