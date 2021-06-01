@@ -8,12 +8,10 @@ def scan(cap, detector, it):
 	img = detector.findHands(img)
 	joints, bbox = detector.findPosition(img)
 
-	system('cls')
-	print('ITERATION:', it)
-	print('Y:', joints[8][2])
-	print('X:', joints[8][1])
-
 	cv2.imshow(f'Joint Detector', img)
 	cv2.waitKey(1)
-	
-	return coords
+
+	if not len(joints):
+		return None
+
+	return joints
