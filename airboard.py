@@ -14,7 +14,7 @@ cap.set(4, GetSystemMetrics(1)) #480
 detector = tracker.handDetector(maxHands=1)
 locations = cal.calibrate(cap, detector, amount)
 
-prevKey, start = '', time()
+prevKey, w, start = '', False, time()
 while True:
 	coords, img, bbox = det.scan(cap, detector)
 
@@ -31,8 +31,14 @@ while True:
 			cv2.putText(img, key.upper(), ((xmin+xmax)//2, ymin-50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,255,255), 2, cv2.LINE_AA)
 			cv2.rectangle(img, (xmin-20, ymin-20), (xmax+20, ymax+20), (0,255,255), 2)
 
+			if w:
+				f = open('typed.txt', 'a')
+				f.write(key)
+				w = False
+
 		else:
 			cv2.putText(img, key.upper(), ((xmin+xmax)//2, ymin-50), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,0), 2, cv2.LINE_AA)
+			w = True
 		
 		prevKey = key
 
