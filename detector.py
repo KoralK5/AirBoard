@@ -15,3 +15,6 @@ def scan(cap, detector, it):
 		return None
 
 	return joints
+
+def closest(locations, coords):
+	return None
