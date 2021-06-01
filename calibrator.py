@@ -28,6 +28,7 @@ def calibrate(cap, detector):
 			
 		cv2.imshow(f'Joint Detector', img)
 		cv2.waitKey(1)
-	
+		
+	system('cls')
 	print('Calibration Sucessfull!')
 	return coords
