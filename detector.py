@@ -3,7 +3,7 @@ import tracker
 import keyboard
 from os import system
 
-def scan(cap, detector, it):
+def scan(cap, detector):
 	success, img = cap.read()
 	img = detector.findHands(img)
 	joints, bbox = detector.findPosition(img)
