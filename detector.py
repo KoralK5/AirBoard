@@ -8,13 +8,10 @@ def scan(cap, detector):
 	img = detector.findHands(img)
 	joints, bbox = detector.findPosition(img)
 
-	cv2.imshow(f'Joint Detector', img)
-	cv2.waitKey(1)
-
 	if not len(joints):
-		return None
+		return None, img
 
-	return joints
+	return joints, img, bbox
 
 def closest(locations, x, y):
 	best, curr = 1000, ''
