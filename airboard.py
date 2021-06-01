@@ -12,17 +12,14 @@ cap.set(4, 480)
 detector = tracker.handDetector(maxHands=1)
 locations = cal.calibrate(cap, detector, amount)
 
-n = 0
 while True:
-	n += 1
-	coords = det.scan(cap, detector, n)
+	coords = det.scan(cap, detector)
 
 	if coords:
 		_, x, y = coords[8]
 
 		key, best = det.closest(locations, x, y)
-
-		system('cls')
-		print('ITERATION:', n)
-		print('\nKey:', key)
-		print(f'\nCertainty: {100 - best}%')
+	
+	system('cls')
+	print('\nKey:', key)
+	print(f'\nCertainty: {100 - best}%')
