@@ -20,7 +20,7 @@ while True:
 		key, best = det.closest(locations, x, y)
 
 		xmin, ymin, xmax, ymax = bbox
-		cv2.putText(img, key, ((xmin+xmax)//2, ymin-50), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2, cv2.LINE_AA)
+		cv2.putText(img, key.upper(), ((xmin+xmax)//2, ymin-50), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2, cv2.LINE_AA)
 
-	cv2.imshow(f'Joint Detector', img)
+	cv2.imshow(f'Keypress Detector', img)
 	cv2.waitKey(1)
