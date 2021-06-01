@@ -4,12 +4,13 @@ import tracker
 import cv2
 from os import system
 from time import time
+from win32api import GetSystemMetrics
 
 amount = int(input('Amount of keys to use: '))
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 640)
-cap.set(4, 480)
+cap.set(3, GetSystemMetrics(0)) #640
+cap.set(4, GetSystemMetrics(1)) #480
 detector = tracker.handDetector(maxHands=1)
 locations = cal.calibrate(cap, detector, amount)
 
