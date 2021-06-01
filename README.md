@@ -1,4 +1,4 @@
-# Air Board
+# AirBoard
 A keyboard without keys which uses OpenCV to locate finger locations to predict key presses. 
 
 ## Reference
